@@ -1,0 +1,44 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container">
+
+                <div class="postagem">
+                    <% postagem.forEach(post => { %>
+                        <h5 class="text-dark">
+                            <strong><%= post.nome %> <%= post.sobrenome %></strong>
+                        </h5>
+                        <br>
+                        <h5 class="text-dark">
+                            <%= post.postagem %>
+                        </h5>
+                </div>
+                <br>
+
+                <!-- forms -->
+                <form action="/admin/grupo/comentario/criar" method="post">
+                    <div class="form-group">
+                        <textarea name="comentario" cols="50" rows="3" class="form-control"></textarea>
+                        <input type="hidden" name="id_grupo_postagem" value="<%= post.id_grupo_postagem %>">
+                    </div>
+                    <input type="submit" value="Comentar" class="btn btn-success btn-sm">
+                </form>
+                <% }) %>
+                    <br>
+                    <div class="card">
+                        <% comentarios.forEach(comentario => { %>
+                            <br>
+                            <div class="card-body text-dark">
+                                <p> <strong><%= comentario.nome %> <%= comentario.sobrenome %></strong></p>
+                                <%= comentario.comentario %>
+                            </div>
+                            <hr>
+                            <% }) %>
+                    </div>
+
+
+            </div>
+        </body>
+        <%- include('../../partials/footer') %>

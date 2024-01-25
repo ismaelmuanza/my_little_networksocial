@@ -1,0 +1,33 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container text-dark">
+                <div class="h2 text-dark">Adicionar Participantes No Grupo</div>
+                <br>
+                <div class="usuarios">
+                    <% usuarios.forEach(usuario => { %>
+                        <div class="usuario">
+                            <form action="/admin/grupo/participante/criar" method="post">
+                                <div class="form-group">
+                                    <input type="hidden" name="participante" value="<%= usuario.id_usuario %>">
+                                    <input type="hidden" name="numero_grupo" value="<%= numero_grupo %>">
+                                </div>
+                                <h5 class="d-inline-block mr-1">
+                                    <%= usuario.nome %>
+                                        <%= usuario.sobrenome %>
+                                </h5>
+                                <% if(usuario.id_usuario != id_usuario_logado) { %>
+                                    <input type="submit" value="Adicionar" class="btn btn-success btn-sm">
+                                    <% } %>
+                            </form>
+                        </div>
+                        <% }) %>
+                            <hr>
+                </div>
+                <br>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer') %>

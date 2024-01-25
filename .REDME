@@ -1,0 +1,18 @@
+Passos a seguir para executar o programa:
+
+1 - Ligue um servidor, usando o XAMPP, MAMP ou WAMP;
+2 - Importar a base de dados "rede_social";
+3 - Abra um terminal no diretório onde se encontra a raiz do projeto, ou seja,
+onde se encontra o arquivo "index.js";
+4 - Execute o programa digitando o comando "node index.js"
+5 - Abra um navegador a sua escolha;
+6 - Digite na url o seguinte endereço "localhost:4000";
+
+
+Para que tudo funcione corretamente, o seu computador deve ter instalado
+os seguintes programas: 
+
+ - Node JS
+ - Mysql Community
+ - Qualquer navegador
+ - XAMPP, WAMP ou MAMP

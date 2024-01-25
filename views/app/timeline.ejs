@@ -1,0 +1,197 @@
+<%- include('../partials/header') %>
+
+    <body>
+        <section class="pagina-home">
+
+            <aside class="sidebar-home">
+                <div class="cabecalho-sidebar-home">
+                    <div class="icones">
+                        <div>
+                            <span><a href="/timeline"><i class="fa-solid fa-icons"></i></a></span>
+                        </div>
+                        <form action="" method="post">
+                            <span><a href="/timeline"><i class="fas fa-search"></i></a></span>
+                            <input type="text" name="pesquisar" placeholder="Pesquisar..."></input>
+                        </form>
+                    </div>
+                </div>
+                <div class="corpo-sidebar-home">
+                    <a href="/admin/postagem/nova" class="botao-sidebar-home">Criar Postagem</a>
+
+                    <div class="itens">
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-user-group"></i></a></span>
+                            <li><a href="/admin/sala_chat/todas">Salas de chat</a></li>
+                        </div>
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-user-group"></i></a></span>
+                            <li><a href="/admin/grupo/todos">Grupos</a></li>
+                        </div>
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-user"></i></a></span>
+                            <li><a href="/admin/usuario/todos">Usuários</a></li>
+                        </div>
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-video"></i></a></span>
+                            <li><a href="#">Vídeos</a></li>
+                        </div>
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-address-card"></i></a></span>
+                            <li><a href="/admin/postagem/todas">Postagens</a></li>
+                        </div>
+                        <div class="item">
+                            <li><a href="#">Ver Mais</a></li>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <!-- main-home -->
+            <main class="main-home">
+                <div class="cabecalho-main-home">
+                    <div class="itens">
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-house"></i></a></span>
+                        </div>
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-user"></i></a></span>
+                        </div>
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-video"></i></a></span>
+                        </div>
+                        <div class="item">
+                            <span><a href="#"><i class="fa-solid fa-user-group"></i></a></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- zona-postagem -->
+                <div class="corpo-home">
+                    <div class="zona-postagem-usuario">
+                        <div class="cabecalho-home">
+                            <div class="usuario-inicio-home">
+                                <span><a href="#"><i class="fa-solid fa-user"></i></a></span>
+                                <li>
+                                    <%= nome %>
+                                        <%= sobrenome%>
+                                </li>
+                            </div>
+                            <p>O que está pensando?</p>
+
+
+                            <div class="itens">
+                                <div class="item item-1">
+                                    <span><a href="#"><i class="fa-solid fa-user"></i></a></span>
+                                    <li>Live Video</li>
+                                </div>
+                                <div class="item item-2">
+                                    <span><a href="#"><i class="fa-solid fa-image"></i></a></span>
+                                    <li>Photo / video</li>
+                                </div>
+                                <div class="item item-3">
+                                    <span><a href="#"><i class="fa-solid fa-face-smile"></i></a></span>
+                                    <li>Feelling / Activity</li>
+                                </div>
+                                <div class="item item-4">
+                                    <span><a href="#"><i>...</i></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- postagens -->
+                    <div class="zona-postagem-usuario postagem-home">
+                        <% postagens.forEach(postagem => { %>
+                            <div class="postagens">
+                                <div class="usuario-inicio-home cabecalho-postagem-home">
+                                    <span><a href="#"><i class="fa-solid fa-circle-user"></i></a></span>
+                                    <div class="descricao-postagem">
+                                        <li>
+                                            <%= postagem.nome %>
+                                                <%= postagem.sobrenome %>
+                                        </li>
+                                        <smal>5 minutes ago</smal>
+                                    </div>
+                                </div>
+
+                                <div class="postagem">
+                                    <%= postagem.postagem %>
+                                </div>
+
+                                <div class="reacoes">
+                                    <div class="itens">
+                                        <div class="item">
+                                            <span><a href="#"><i class="fa-solid fa-thumbs-up"></i></a></span>
+                                            <li>450</li>
+                                        </div>
+                                        <div class="item comentario">
+                                            <span><a href="#"><i class="fa-solid fa-comment"></i></a></span>
+                                            <li>500</li>
+                                        </div>
+                                        <div class="item">
+                                            <span><a href="#"><i class="fa-solid fa-share"></i></a></span>
+                                            <li>100k</li>
+                                        </div>
+                                    </div>
+                                    <div class="botao-reacao">
+                                        <a href="#">Like</a>
+                                        <a href="/admin/postagem/postagem/<%= postagem.id_postagem %>">Comentar</a>
+                                        <a href="#">Partilhar</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <% }) %>
+                                <!-- end posta -->
+                    </div>
+            </main>
+
+            <aside class="lado-direito-home">
+                <div class="cabecalho-home">
+                    <div class="icones">
+                        <span><a href="/admin/mensagem/todas"><i class="fa-regular fa-message"></i></a></span>
+                        <span class="icone-2"><a href="#"><i class="fa-regular fa-bell"></i></a></span> |
+                        <span><a href="#"><i class="fa-regular fa-circle-user"></i></a></span>
+                        <li>
+                            <a href="#" style="color: black;">
+                                <%= nome %>
+                                    <%= sobrenome%>
+                            </a>
+                        </li>
+                        <div class="dropdown">
+                            <input type="checkbox" id="dropdown">
+
+                            <label class="dropdown__face" for="dropdown">
+                          <div class="dropdown__arrow"></div>
+                        </label>
+
+                            <ul class="dropdown__items">
+                                <li><a href="/">Login</a></li><br>
+                                <li><a href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="lado-direito-corpo">
+                    <div>
+                        <span style="font-weight: 550;">Notificações</span>
+                    </div>
+
+                    <!-- botao pesquisar -->
+                    <div class="sidebar-home" style="margin-left: -20px;">
+                        <div class="cabecalho-sidebar-home">
+                            <div class="icones">
+                                <form action="#" method="post">
+                                    <span><a href="index.html"><i class="fas fa-search"></i></a></span>
+                                    <input type="text" name="pesquisar" placeholder="Pesquisar">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </aside>
+        </section>
+    </body>
+    <%- include('../partials/footer') %>

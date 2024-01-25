@@ -1,0 +1,63 @@
+<%- include('../partials/header') %>
+
+    <body>
+        <section class="pagina-login">
+            <div class="corpo">
+                <div class="logo"><img src="" alt=""></div>
+                <p>Login</p>
+                <div class="fundo-branco">
+
+                    <% if(dadosCorretos != undefined) { %>
+                        <h5 class="text-success text-center" style="font-size: 13px;">
+                            <%= dadosCorretos %>
+                        </h5>
+                        <% } %>
+
+                            <form action="/admin/usuario/auth" method="post">
+                                <div>
+                                    <label for="email">Email</label>
+                                    <input type="email" name="email">
+                                </div>
+                                <div>
+                                    <label for="senha">Senha</label>
+                                    <input type="password" name="senha">
+                                </div>
+                                <input type="submit" value="Entrar">
+                            </form>
+
+
+                            <% if(loginErro != undefined) { %>
+                                <p class="text-danger text-center mt-2" style="font-size: 13px;">
+                                    <%= loginErro %>
+                                </p>
+                                <% } %>
+
+                                    <% if(senhaFalso != undefined) { %>
+                                        <p class="text-danger text-center mt-2" style="font-size: 13px;">
+                                            <%= senhaFalso %>
+                                        </p>
+                                        <% } %>
+
+                                            <% if(usuarioFalso != undefined) { %>
+                                                <p class="text-danger text-center mt-2" style="font-size: 13px;">
+                                                    <%= usuarioFalso %>
+                                                </p>
+                                                <% } %>
+                </div>
+                <!-- nova conta -->
+                <div class="informacao-de-baixo">
+                    <span>Novo Usuário? <a href="/admin/usuario/novo">Crie um conta</a></span>
+                </div>
+
+                <!-- termos e privacidade -->
+                <div class="termos-privacidade">
+                    <span><a href="#">Termos</a></span>
+                    <span><a href="#">Privacidade</a></span>
+                    <span><a href="#">Segurança</a></span>
+                    <span><a href="#" class="cinza-privacidade">Contactar Admin</a></span>
+                </div>
+            </div>
+        </section>
+    </body>
+
+    <%- include('../partials/footer') %>

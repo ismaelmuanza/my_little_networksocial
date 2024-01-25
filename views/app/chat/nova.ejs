@@ -1,0 +1,20 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container text-dark">
+                <div class="h2 text-dark">Criar nova sala de conversa</div>
+                <br>
+                <form action="/admin/sala_chat/criar" method="post">
+                    <div class="form-group">
+                        <input type="text" name="nome" class="form-control">
+                        <input type="hidden" name="criador" value="<%= usuario.id %>">
+                    </div>
+                    <input type="submit" value="Criar Sala" class="btn btn-primary btn-sm">
+                </form>
+                <br>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer') %>

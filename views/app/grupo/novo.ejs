@@ -1,0 +1,19 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+        <body>
+            <div class="container text-dark">
+                <div class="h2 text-dark">Criar novo grupo</div>
+                <br>
+                <form action="/admin/grupo/criar" method="post">
+                    <div class="form-group">
+                        <input type="text" name="nome" placeholder="Digite o nome do grupo!" class="form-control">
+                        <input type="hidden" name="criador" value="<%= id_usuario_logado %>">
+                    </div>
+                    <input type="submit" value="Criar Grupo" class="btn btn-primary btn-sm">
+                </form>
+                <br>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer') %>

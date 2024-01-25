@@ -1,0 +1,28 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container text-dark">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="h2">Criar Nova Postagem</div>
+                        <p>
+
+                        </p>
+                    </div>
+                    <div class="card-body">
+                        <form action="/admin/grupo/postagem/criar" method="post">
+                            <div class="form-group">
+                                <textarea name="postagem" cols="30" rows="10" placeholder="Escreva sua postagem no grupo..." class="form-control"></textarea>
+                                <input type="hidden" name="id_usuario" value="<%= id_usuario_logado %>">
+                                <input type="hidden" name="numero_grupo" value="<%= numero_grupo %>">
+                            </div>
+                            <input type="submit" value="Publicar Postagem" class="btn btn-success">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer') %>

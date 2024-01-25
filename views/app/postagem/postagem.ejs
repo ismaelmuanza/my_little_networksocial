@@ -1,0 +1,50 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container">
+                <!-- conteudo -->
+                <main class="conteudo">
+                    <div class="postagens">
+                        <div class="postagem">
+                            <% postagem.forEach(post => { %>
+                                <div class="item">
+                                    <i></i>
+                                    <h4>
+                                        <a href="#">
+                                            <%=  post.nome %>
+                                                <%=  post.sobrenome %>
+                                        </a>
+                                    </h4>
+                                </div>
+                                <p>
+                                    <%=  post.postagem %>
+                                </p>
+                        </div>
+
+                        <!-- forms -->
+                        <form action="/admin/comentario/criar" method="post">
+                            <div class="form-group">
+                                <textarea name="comentario" cols="50" rows="3" class="form-control"></textarea>
+                                <input type="hidden" name="id_postagem" value="<%= post.id_postagem %>"></input>
+                            </div>
+                            <input type="submit" value="Comentar" class="btn btn-primary btn-sm">
+                        </form>
+                        <% }) %>
+
+                            <br>
+                            <div class="card">
+                                <% comentarios.forEach(comentario => { %>
+                                    <br>
+                                    <div class="card-body text-dark">
+                                        <p> <strong><%= comentario.nome %> <%= comentario.sobrenome %></strong></p>
+                                        <%= comentario.comentario %>
+                                    </div>
+                                    <hr>
+                                    <% }) %>
+                            </div>
+                    </div>
+            </div>
+        </body>
+        <%- include('../../partials/footer') %>

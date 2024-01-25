@@ -1,0 +1,120 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+        <body>
+            <section class="pagina-mensagem">
+
+                <!-- mensagem-icones -->
+                <div class="mensagem-icones">
+                    <div class="icones-1 icones-list">
+                        <span><i class="fa-solid fa-circle-user"></i></span>
+                    </div>
+                    <div class="icones-2 icones-list">
+                        <span><i class="fa-solid fa-message"></i></span>
+                        <span><i class="fa-solid fa-user-group"></i></span>
+                        <span><i class="fa-solid fa-phone"></i></span>
+                        <span><i class="fa-solid fa-video"></i></span>
+                        <span><i class="fa-solid fa-bookmark icone-center"></i></span>
+                        <span><i class="fa-solid fa-gear"></i></span>
+                    </div>
+                    <div class="icones-3 icones-list">
+                        <span><i class="fa-solid fa-plus icone-center"></i></span>
+                        <span><i class="fa-solid fa-circle-user"></i></span>
+                    </div>
+                </div>
+
+                <!-- mensagens-recebidas -->
+                <div class="mensagens-recebidas">
+                    <div class="item">
+                        <div class="info icones-recebidas">
+                            <span class="margem-direita-icone"><i class=" fa-solid fa-circle-user"></i></span>
+                            <div class="descricao">
+                                <li>Bujange Bapak</li>
+                                <small>My Account</small>
+                            </div>
+                        </div>
+                        <div class="icones icones-recebidas">
+                            <span><i style="padding-left: 6px;" class="fa-solid fa-ellipsis-vertical"></i></span>
+                        </div>
+                    </div>
+                    <div class="mensagens-recebidas-info">
+                        <!-- <form action="#" method="post"> -->
+                        <div class="botao-pesquisar">
+                            <button type="submit"><i class="fas fa-search"></i></button>
+                            <input type="text" name="pesquisar" placeholder="Pesquisar Mensagens">
+                        </div>
+
+                        <!-- lista de mensagens -->
+                        <div class="msg-recebidas">
+                            <p>Mensagens</p>
+                            <% mensagens.forEach(mensagem => { %>
+                                <div class="dados icones-recebidas">
+                                    <span><i class="fa-solid fa-circle-user"></i></span>
+                                    <div>
+                                        <li>
+                                            <a class="puxar-mensagens" href="/admin/mensagem/mensagem/<%= mensagem.id_recetor %>/<%= mensagem.id_emissor %>/mensagem">
+                                                <%= mensagem.nome %>
+                                                    <%= mensagem.sobrenome %>
+                                            </a>
+                                        </li>
+                                        <small>Dul, was madang urung?</small>
+                                    </div>
+                                </div>
+                                <% }) %>
+                        </div>
+                        <!-- </form> -->
+                    </div>
+                </div>
+                <!-- conteudo mensagem -->
+                <div class="mensagem-conteudo mensagens-recebidas">
+                    <div class="item">
+                        <div class="info icones-recebidas">
+                            <span class="margem-direita-icone"><i class="fa-solid fa-circle-user"></i></span>
+                            <div class="descricao">
+                                <li>Michael</li>
+                                <small>Typing...</small>
+                            </div>
+                        </div>
+                        <div class="icones icones-recebidas">
+                            <span><i class="fa-solid fa-phone"></i></span>
+                            <span><i class="fa-solid fa-video"></i></span>
+                            <span><i style="padding-left: 6px;" class="fa-solid fa-ellipsis-vertical"></i></span>
+                        </div>
+                    </div>
+                    <div id="mensagens-info" class="mensagens-info">
+                        <div class="msg">
+                            <li>Lorem ipsum dolor sit amet.</li>
+                        </div>
+
+                        <div class="msg">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos, maiores?</li>
+                        </div>
+
+                        <div class="msg">
+                            <li>Lorem ipsum dolor sit amet.</li>
+                        </div>
+
+                        <div class="msg">
+                            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam mollitia minus porro optio maxime qui nisi consectetur repellat, quisquam esse!</li>
+                        </div>
+                    </div>
+                    <div class="mensagem-footer">
+                        <div class="mensagem-upload">
+                            <span> <i class="fa-solid fa-paperclip"></i></span>
+
+                        </div>
+                        <div class="mensagem-campo">
+                            <form action="" method="post">
+                                <input type="text" name="mensagem" placeholder="Escreva sua mensagem..."></input>
+                                <span><a href="#"><i class="fa-solid fa-paper-plane"></i></a></span>
+                            </form>
+                        </div>
+                        <div class="mensagem-microfone">
+                            <span><i class="fa-solid fa-microphone"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </body>
+
+        <%- include('../../partials/footer') %>

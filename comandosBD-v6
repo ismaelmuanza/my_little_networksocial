@@ -1,0 +1,123 @@
+create database rede_social
+default charset utf8
+default collate utf8_general_ci;
+
+use rede_social;
+
+/* tabelas*/
+
+/* tabela usuarios*/
+create table usuarios (
+	id_usuario int primary key auto_increment not null,
+    nome varchar(100) not null,
+    sobrenome varchar(100) not null,
+    email varchar(255) unique not null,
+    senha varchar(100) not null,
+    telefone int default 0,
+    data datetime default current_timestamp not null
+);
+
+
+/* tabela mensagens*/
+create table mensagens (
+	id_mensagem int primary key auto_increment not null,
+    mensagem varchar(100) not null,
+    id_emissor int  not null,
+    id_recetor int not null,
+    foreign key(id_emissor) references usuarios(id_usuario),
+    foreign key(id_recetor) references usuarios(id_usuario),
+	data datetime default current_timestamp not null
+);
+
+/* tabela postagens*/
+create table postagens (
+	id_postagem int primary key auto_increment not null,
+    postagem varchar(100) not null,
+    id_usuario int  not null,
+    foreign key(id_usuario) references usuarios(id_usuario),
+	data datetime default current_timestamp not null
+);
+
+/* tabela comentarios*/
+create table comentarios (
+	id_comentario int primary key auto_increment not null,
+    comentario varchar(100) not null,
+    id_usuario int  not null,
+    id_postagem int  not null,
+    foreign key(id_usuario) references usuarios(id_usuario),
+    foreign key(id_postagem) references postagens(id_postagem),
+	data datetime default current_timestamp not null
+);
+
+/* sala de chat */
+create table sala_chat (
+	id_sala_chat int primary key auto_increment not null,
+    nome varchar(100) not null,
+    criador int not null,
+    foreign key(criador) references usuarios (id_usuario),
+    data datetime not null default current_timestamp
+);
+
+/* participantes */
+create table participantes (
+	id_participante int primary key auto_increment not null,
+    participante int not null,
+    numero_sala int not null,
+    foreign key(participante) references usuarios (id_usuario),
+    foreign key(numero_sala) references sala_chat(id_sala_chat),
+    data datetime not null default current_timestamp
+);
+
+/* chats - mensagens das salas de chat */
+create table chats (
+	id_chat int primary key auto_increment not null,
+    mensagem varchar(255) not null,
+    id_usuario int not null,
+    numero_sala int not null,
+    foreign key(id_usuario) references usuarios (id_usuario),
+    foreign key(numero_sala) references sala_chat(id_sala_chat),
+    data datetime not null default current_timestamp
+);
+
+/* grupos */
+/* tb grupos */
+create table grupos (
+	id_grupo int primary key auto_increment not null,
+    nome varchar(255) not null,
+    criador int not null,
+    foreign key(criador) references usuarios (id_usuario),
+    data datetime not null default current_timestamp
+);
+
+/* grupo_participante */
+create table grupo_participantes(
+	id_grupo_participante int primary key auto_increment key not null,
+    participante int not null,
+    numero_grupo int not null,
+    foreign key (participante) references usuarios (id_usuario),
+    foreign key (numero_grupo) references grupos (id_grupo),
+    data datetime not null default current_timestamp
+);
+
+/* grupo_postagens */
+create table grupo_postagens (
+	id_grupo_postagem int primary key auto_increment not null,
+    postagem text not null,
+    id_usuario int not null,
+    numero_grupo int not null,
+    foreign key (id_usuario) references usuarios (id_usuario),
+    foreign key (numero_grupo) references grupos (id_grupo),
+    data datetime not null default current_timestamp
+);
+
+/* grupo_comentarios */
+create table grupo_comentarios(
+	id_grupo_comentario int primary key auto_increment not null,
+    comentario text not null,
+    id_usuario int not null,
+    id_grupo_postagem int not null,
+    foreign key (id_usuario) references usuarios (id_usuario),
+    foreign key (id_grupo_postagem) references grupo_postagens (id_grupo_postagem),
+    data datetime not null default current_timestamp
+);
+

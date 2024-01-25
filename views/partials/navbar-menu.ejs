@@ -1,0 +1,33 @@
+<nav class="menu-principal">
+    <div class="menu-esquerda">
+        <div class="icones">
+            <span><a href="/timeline"><i class="fa-solid fa-address-card"></i></a></span>
+            <form action="#" method="post">
+                <span><a href="#"><i class="fas fa-search"></i></a></span>
+                <input type="text" name="pesquisar" placeholder="Pesquisar..."></input>
+            </form>
+        </div>
+    </div>
+    <div class="menu-direita">
+        <div class="icones">
+            <span><a id="mensagem-icone" href="/admin/mensagem/todas"><i class="fa-regular fa-message"></i></a></span>
+            <span><a href="#"><i class="fa-regular fa-bell"></i></a></span> <span class="pipe">|</span>
+            <span><a href="#"><i class="fa-regular fa-circle-user"></i></a></span>
+            <span class="usuario"><a href="#"><%= nome %> <%= sobrenome %></a></span>
+            <div class="dropdown">
+                <input type="checkbox" id="dropdown">
+
+                <label class="dropdown__face" for="dropdown">
+                          <div class="dropdown__arrow"></div>
+                        </label>
+
+                <ul class="dropdown__items">
+                    <li><a href="/">Login</a></li><br>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</nav>

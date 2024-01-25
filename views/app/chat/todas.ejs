@@ -1,0 +1,26 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container text-dark">
+                <div class="h2 text-dark">Sala de Chat</div>
+                <a href="/admin/sala_chat/nova" class="btn btn-success btn-sm">Criar Sala</a>
+                <hr>
+                <div class="salas">
+                    <% salas.forEach(sala => { %>
+                        <div class="sala mb-3">
+                            <h5 class="text-dark d-inline-block mr-3">
+                                <%= sala.nome %>
+                            </h5>
+                            <a href="/admin/chat/<%= sala.criador %>/<%= sala.id_sala_chat %>" class="btn btn-primary btn-sm">Abrir Sala</a>
+                        </div>
+                        <hr>
+                        <% }) %>
+                </div>
+                <br>
+            </div>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer') %>

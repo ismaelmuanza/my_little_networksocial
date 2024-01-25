@@ -1,0 +1,39 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container">
+
+                <p class="text-muted">
+                    Nome da conversa:
+                    <%= sala_chat[0].nome %>
+                </p>
+                <!-- mensagens -->
+                <% chats.forEach(chat => { %>
+                    <div class="mensagem mb-4">
+                        <p><strong><%= chat.nome %> <%= chat.sobrenome %></strong></p>
+                        <%= chat.mensagem %>
+                    </div>
+                    <% }) %>
+                        <br>
+                        <!-- forms -->
+                        <form action="/admin/sala_chat/criar_chat" method="post">
+                            <div class="form-group">
+                                <textarea name="mensagem" cols="50" rows="3" class="form-control"></textarea>
+                                <input type="hidden" name="id_usuario" value="<%= usuario_logado.id %>">
+                                <input type="hidden" name="numero_sala" value="<%= sala_chat[0].id_sala_chat %>">
+                            </div>
+                            <input type="submit" value="Enviar" class="btn btn-primary">
+                            <a href="/admin/sala_chat/adicionar/<%= sala_chat[0].id_sala_chat %>" class="btn btn-success">Adicionar Membros</a>
+                            <a href="/admin/sala_chat/participantes/<%= sala_chat[0].id_sala_chat %>" class="btn btn-primary">Ver Membros da sala de chat</a>
+
+                        </form>
+
+                        <br>
+
+
+
+            </div>
+        </body>
+        <%- include('../../partials/footer') %>

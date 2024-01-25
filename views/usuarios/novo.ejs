@@ -1,0 +1,47 @@
+<%- include('../partials/header') %>
+
+    <body>
+        <section class="pagina-login pagina-cadastro">
+            <div class="corpo">
+                <div class="logo"><img src="" alt=""></div>
+                <p>Criar Conta</p>
+                <div class="fundo-branco">
+                    <form action="/admin/usuario/criar" method="post">
+                        <div>
+                            <label for="nome">Nome</label>
+                            <input type="text" name="nome">
+                        </div>
+                        <div>
+                            <label for="sobrenome">Sobrenome</label>
+                            <input type="text" name="sobrenome">
+                        </div>
+                        <div>
+                            <label for="email">Email</label>
+                            <input type="email" name="email">
+                        </div>
+                        <div>
+                            <label for="senha">Senha</label>
+                            <input type="password" name="senha">
+                        </div>
+                        <input type="submit" value="Salvar">
+                    </form>
+                    <% if(emailErro != undefined) {%>
+                        <p class="text-danger mt-2 text-center" style="font-size: 13px;">
+                            <%= emailErro %>
+                        </p>
+                        <% } %>
+
+                            <% if(dadosErro != undefined) {%>
+                                <p class="text-danger mt-2 text-center" style="font-size: 13px;">
+                                    <%= dadosErro %>
+                                </p>
+                                <% } %>
+                </div>
+                <!-- nova conta -->
+                <div class="informacao-de-baixo">
+                    <span>Já tem uma conta? <a href="/">Entrar</a></span>
+                </div>
+            </div>
+        </section>
+    </body>
+    <%- include('../partials/footer') %>

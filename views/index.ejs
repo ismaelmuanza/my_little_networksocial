@@ -1,0 +1,30 @@
+<%- include('./partials/header') %>
+
+    <body>
+        good
+        <% if(age <= 18) { %>
+            <h3>
+                <%= name %>
+            </h3>
+
+            <% } else { %>
+                <p>
+                    <%= age %>
+                </p>
+
+                <% } %>
+
+                    <hr>
+
+                    <h2>FRIENDS</h2>
+                    <% friends.forEach(f => { %>
+                        <p>Name:
+                            <%= f.name %>
+                        </p>
+                        <p>Surname:
+                            <%= f.surname %>
+                        </p>
+                        <hr>
+                        <% }) %>
+    </body>
+    <%- include('./partials/footer') %>

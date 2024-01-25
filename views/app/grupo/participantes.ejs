@@ -1,0 +1,31 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container text-dark">
+                <div class="h2 text-dark">Participantes Do Grupo</div>
+                <br>
+                <div class="usuarios">
+                    <% participantes.forEach(participante => { %>
+                        <div class="usuario">
+                            <form action="#" method="post">
+                                <div class="form-group">
+                                    <input type="hidden" name="participante" value="">
+                                    <input type="hidden" name="numero_grupo" value="">
+                                </div>
+                                <h5 class="d-inline-block mr-1">
+                                    <%= participante.nome %>
+                                        <%= participante.sobrenome %>
+                                </h5>
+                                <input type="submit" value="Remover" class="btn btn-danger btn-sm">
+                            </form>
+                        </div>
+                        <% }) %>
+                            <hr>
+                </div>
+                <br>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer') %>

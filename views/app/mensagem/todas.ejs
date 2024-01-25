@@ -1,0 +1,24 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+        <body>
+            <div class="container text-dark">
+                <div class="h2 text-dark">Mensagens</div>
+                <br>
+                <% mensagens.forEach(mensagem => { %>
+
+                    <div class="mensagens">
+                        <h5 class="text-dark">
+                            <%= mensagem.nome %>
+                                <%= mensagem.sobrenome %>
+                        </h5>
+                        <hr>
+                        <a href="/admin/mensagem/mensagem/<%= mensagem.id_recetor %>/<%= mensagem.id_emissor %>/mensagem" class="btn btn-success btn-sm">Visualizar</a>
+                    </div>
+                    <br>
+                    <% }) %>
+            </div>
+            </div>
+        </body>
+
+        <%- include('../../partials/footer') %>

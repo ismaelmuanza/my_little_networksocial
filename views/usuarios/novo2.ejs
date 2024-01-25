@@ -1,0 +1,43 @@
+<%- include('../partials/header') %>
+    <%- include('../partials/navbar-cadastro') %>
+
+        <body>
+            <div class="container mx-auto">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="text-center">Cadastro</h2>
+                        <form action="/admin/usuario/criar" method="post">
+                            <div class="form-group">
+                                <input type="text" name="nome" placeholder="Insira seu Nome!" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="sobrenome" placeholder="Insira seu Sobrenome!" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="number" name="telefone" placeholder="Insira seu Telefone!" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" placeholder="Insira seu E-mail!" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="senha" placeholder="Insira sua Senha!" class="form-control">
+                            </div>
+                            <input type="submit" value="Cadastrar" class="btn btn-success btn-block">
+                        </form>
+                        <% if(emailErro != undefined) {%>
+                            <p class="text-danger mt-2">
+                                <%= emailErro %>
+                            </p>
+                            <% } %>
+
+                                <% if(dadosErro != undefined) {%>
+                                    <p class="text-danger mt-2">
+                                        <%= dadosErro %>
+                                    </p>
+                                    <% } %>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+        <%- include('../partials/footer') %>

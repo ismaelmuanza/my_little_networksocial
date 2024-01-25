@@ -1,0 +1,41 @@
+<%- include('../../partials/header') %>
+    <%- include('../../partials/navbar-menu') %>
+
+
+        <body>
+            <div class="container">
+
+                <h3 class="text-dark">
+                    <%= nome_logado %>
+                </h3>
+                <br>
+
+                <% mensagens.forEach(mensagem => { %>
+                    <!-- mensagens -->
+                    <div class="mensagem mb-4">
+                        <% if (mensagem.id_emissor == id_usuario_logado) { %>
+                            <p class="text-primary"><strong><%= mensagem.nome %> <%= mensagem.sobrenome %></strong></p>
+                            <% } else { %>
+                                <p class="text-success"><strong><%= mensagem.nome %> <%= mensagem.sobrenome %></strong></p>
+                                <% } %>
+                                    <%= mensagem.mensagem %>
+                    </div>
+                    <hr>
+                    <% }) %>
+                        <!-- forms -->
+                        <form action="/admin/mensagem/criar" method="post">
+                            <div class="form-group">
+                                <textarea name="mensagem" cols="50" rows="3" class="form-control"></textarea>
+                                <input type="hidden" name="id_emissor" value=" <%= id_emissor %>">
+                                <input type="hidden" name="id_recetor" value=" <%= id_recetor %>">
+                            </div>
+                            <input type="submit" value="Enviar" class="btn btn-success">
+                        </form>
+
+                        <br>
+
+
+
+            </div>
+        </body>
+        <%- include('../../partials/footer') %>
